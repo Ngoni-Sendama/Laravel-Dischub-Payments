@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('order_id')->unique();
             $table->string('transaction_id')->nullable();
             $table->string('sender_email');
-            $table->string('recipient_email');
             $table->decimal('amount', 10, 2);
             $table->string('currency');
             $table->string('status')->default('pending');

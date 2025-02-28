@@ -27,7 +27,7 @@ class DischubService
         $order = Order::create([
             'order_id'        => $data['order_id'],
             'sender_email'    => $data['sender'],
-            'recipient_email' => $data['recipient'],
+            'recipient_email' => 'ngonidzashesendama@gmail.com',
             'amount'          => $data['amount'],
             'currency'        => $data['currency'],
             'status'          => 'pending',
@@ -38,7 +38,7 @@ class DischubService
             'notify_url' => $this->notifyUrl,
             'order_id'   => $order->order_id,
             'sender'     => $order->sender_email,
-            'recipient'  => $order->recipient_email,
+            'recipient'  => 'ngonidzashesendama@gmail.com',
             'amount'     => $order->amount,
             'currency'   => $order->currency,
         ]);

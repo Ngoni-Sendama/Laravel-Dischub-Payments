@@ -13,7 +13,6 @@ class Order extends Model
         'order_id',
         'transaction_id',
         'sender_email',
-        'recipient_email',
         'amount',
         'currency',
         'status',

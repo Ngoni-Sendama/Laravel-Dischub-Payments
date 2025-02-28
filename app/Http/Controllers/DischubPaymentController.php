@@ -36,17 +36,15 @@ class DischubPaymentController extends Controller
         $validated = $request->validate([
             'order_id'  => 'required|numeric|unique:orders,order_id',
             'sender'    => 'required|email',
-            'recipient' => 'required|email',
             'amount'    => 'required|numeric|min:1|max:480',
             'currency'  => 'required|in:USD,ZWG',
-            'reference' => 'required|string|unique:orders,reference', // added reference field
         ]);
 
         // Passing the validated data including the reference to the createOrder method
         $response = $this->dischubService->createOrder($validated);
 
         if ($response['status'] === 'success') {
-            return redirect($this->dischubService->getPaymentUrl($validated['recipient'], $validated['order_id']));
+            return redirect($this->dischubService->getPaymentUrl('ngonidzashesendama@gmail.com', $validated['order_id']));
         }
 
         return back()->with('error', $response['message']);

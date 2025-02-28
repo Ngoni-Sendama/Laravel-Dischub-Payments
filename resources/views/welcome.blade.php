@@ -28,10 +28,10 @@
                 <input type="email" name="sender" class="w-full p-2 border rounded" required>
             </div>
 
-            <div>
+            {{-- <div>
                 <label class="block text-sm font-medium">Recipient Email</label>
                 <input type="email" name="recipient" class="w-full p-2 border rounded" required>
-            </div>
+            </div> --}}
 
             <div>
                 <label class="block text-sm font-medium">Amount (Max: 480 USD)</label>
@@ -44,11 +44,6 @@
                     <option value="USD">USD</option>
                     <option value="ZWG">ZWG</option>
                 </select>
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium">Reference</label>
-                <input type="text" name="reference" class="w-full p-2 border rounded" required>
             </div>
 
             <button type="submit" class="bg-blue-500 text-white w-full py-2 rounded hover:bg-blue-600">
