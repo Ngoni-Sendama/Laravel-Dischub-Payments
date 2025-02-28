@@ -46,6 +46,11 @@
                 </select>
             </div>
 
+            <div>
+                <label class="block text-sm font-medium">Reference</label>
+                <input type="text" name="reference" class="w-full p-2 border rounded" required>
+            </div>
+
             <button type="submit" class="bg-blue-500 text-white w-full py-2 rounded hover:bg-blue-600">
                 Initiate Payment
             </button>

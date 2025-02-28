@@ -16,7 +16,7 @@ class DischubService
     public function __construct()
     {
         $this->apiKey = env('DISCHUB_API_KEY');
-        $this->notifyUrl = route('dischub.callback', [], true);
+        $this->notifyUrl = 'https://mcsolutionszim.co.zw/dischub/callback';
     }
 
     /**
