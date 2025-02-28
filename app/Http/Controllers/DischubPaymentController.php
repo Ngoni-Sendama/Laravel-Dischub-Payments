@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Status;
 use Illuminate\Http\Request;
 use App\Services\DischubService;
 use Illuminate\Support\Facades\Log;
@@ -23,7 +24,8 @@ class DischubPaymentController extends Controller
     public function listOrders()
     {
         $transactions = Order::latest()->get();
-        return view('orders', compact('transactions'));
+        $statuses = Status::latest()->get();
+        return view('orders', compact('transactions', 'statuses'));
     }
 
     /**
@@ -58,6 +60,10 @@ class DischubPaymentController extends Controller
 
             // Log the received callback data
             Log::info('Received data at callback:', $data ?? []);
+
+            Status::create([
+                'data' => json_encode($data) // Store as JSON string
+            ]);
 
             // Return the received data in JSON format
             return response()->json([

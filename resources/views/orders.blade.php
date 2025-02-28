@@ -44,16 +44,16 @@
                     </td>
                     <td>${{ number_format($transaction->amount, 2) }}</td>
                     <td>{{ $transaction->currency }}</td>
-                    <td>
-                        <form action="{{ route('payment.status', $transaction->order_id) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-primary btn-sm">Refresh Status</button>
-                        </form>
-                    </td>
+                    
                 </tr>
                 @endforeach
             </tbody>
         </table>
+
+        <h1>Statuses</h1>
+        @foreach($statuses as $status)
+            {{$status->data}}
+        @endforeach
     </div>
 </body>
 </html>

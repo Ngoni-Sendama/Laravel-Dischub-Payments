@@ -11,7 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->validateCsrfTokens(except: [
+            'dischub/callback', // Exclude this route from CSRF protection
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
