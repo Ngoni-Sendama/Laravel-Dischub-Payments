@@ -39,17 +39,17 @@ class DischubPaymentController extends Controller
             'currency'  => 'required|in:USD,ZWG',
             'reference' => 'required|string|unique:orders,reference', // added reference field
         ]);
-    
+
         // Passing the validated data including the reference to the createOrder method
         $response = $this->dischubService->createOrder($validated);
-    
+
         if ($response['status'] === 'success') {
             return redirect($this->dischubService->getPaymentUrl($validated['recipient'], $validated['order_id']));
         }
-    
+
         return back()->with('error', $response['message']);
     }
-    
+
     public function receiveDischubCallback(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -59,10 +59,13 @@ class DischubPaymentController extends Controller
             // Log the received callback data
             Log::info('Received data at callback:', $data ?? []);
 
-            return response()->json(['message' => 'Callback received successfully'], 200);
+            // Return the received data in JSON format
+            return response()->json([
+                'message' => 'Callback received successfully',
+                'data' => $data ?? []
+            ], 200);
         }
 
         return response()->json(['error' => 'Invalid request method'], 405);
     }
-    
 }
