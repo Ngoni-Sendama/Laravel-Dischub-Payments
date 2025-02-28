@@ -28,14 +28,9 @@
                 <input type="email" name="sender" class="w-full p-2 border rounded" required>
             </div>
 
-            {{-- <div>
-                <label class="block text-sm font-medium">Recipient Email</label>
-                <input type="email" name="recipient" class="w-full p-2 border rounded" required>
-            </div> --}}
-
             <div>
                 <label class="block text-sm font-medium">Amount (Max: 480 USD)</label>
-                <input type="number" name="amount" class="w-full p-2 border rounded" step="0.01" required>
+                <input type="number" name="amount" class="w-full p-2 border rounded" required>
             </div>
 
             <div>
