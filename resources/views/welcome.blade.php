@@ -15,7 +15,6 @@
                 {{ session('error') }}
             </div>
         @endif
-
         <form action="{{ route('dischub.order') }}" method="POST" class="space-y-4">
             @csrf
             <div>
@@ -30,7 +29,7 @@
 
             <div>
                 <label class="block text-sm font-medium">Amount (Max: 480 USD)</label>
-                <input type="number" name="amount" class="w-full p-2 border rounded" required>
+                <input type="number" name="amount" class="w-full p-2 border rounded" step="0.01" required>
             </div>
 
             <div>

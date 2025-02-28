@@ -36,7 +36,7 @@ class DischubPaymentController extends Controller
         $validated = $request->validate([
             'order_id'  => 'required|numeric|unique:orders,order_id',
             'sender'    => 'required|email',
-            'amount'    => 'required|numeric|min:1|max:480',
+           'amount' => 'required|numeric|min:0.01|max:480',
             'currency'  => 'required|in:USD,ZWG',
         ]);
 
